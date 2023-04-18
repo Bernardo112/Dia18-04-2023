@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta http-equiv="Content-Security-Policy" content="default-src * data: gap: content: https://ssl.gstatic.com; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'">
     <script src="components/loader.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="components/loader.css">
     <link rel="stylesheet" href="css/style.css">
     <script>
@@ -16,13 +18,14 @@
 
             nomes.push(nomeinserido);
 
-            alert(nomes);
-        }
-
-        function unshiftvetor(){
-            nomeinserido = document.getElementById('innome').value;
-
-            nomes.unshift(nomeinserido);
+            var message = "";
+            for(var i = 0; i < nomes.length; i++){
+                var alpha = i + " - " + nomes[i] + "<br>";
+                var beta = message;
+                message = beta + alpha;
+                //alert(message);
+            }
+            document.getElementById('texto').innerHTML = message;
 
             alert(nomes);
         }
@@ -32,19 +35,20 @@
 
             alert(nomes);
         }
-
-        function shiftvetor(){
-            nomes.shift();
-
-            alert(nomes);
-        }
     </script>
 </head>
 <body>
-	<input type="text" placeholder="Insira o nome aqui" id="innome">
-    <input type="submit" value="PUSH" onclick="pushvetor()">
-    <input type="submit" value="UNSHIFT" onclick="unshiftvetor()">
-    <input type="submit" value="POP" onclick="popvetor()">
-    <input type="submit" value="CADASTRAR" onclick="shiftvetor()">
+    <br><br><h1 style="text-align: center">Atividade Vetor</h1><br><br>
+    <div class="input-group mb-3">
+        <span class="input-group-text" id="inputGroup-sizing-default">Insira o nome</span>
+        <input type="text" class="form-control" id="innome" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="nome1">
+    </div>
+    <div class="d-grid gap-2">
+        <button class="btn btn-outline-dark" type="submit" id="button-addon2" onclick="pushvetor()">Cadastrar</button>
+    </div>
+
+    <br><hr><br>
+
+    <p style="text-align:center;" id="texto"></p>
 </body>
 </html>
